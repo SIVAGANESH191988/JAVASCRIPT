@@ -1,0 +1,127 @@
+<html>
+    <head>
+<title>
+    TODO LIST
+</title>
+<center>
+    <b>TODO LIST</b>
+</center>
+<br>
+
+    </head>
+    <style>
+        table, th, td {
+          border:1px solid black; 
+        }
+        </style>
+<body>
+    <center>
+    <table style="width: 500px;height:100px">
+        <th>Date</th>
+        <th>information</th>
+        <tr>
+            <td id="1"></td>
+            <td id="5"></td>
+        </tr>
+
+    </table>
+</center>
+<br>
+<center>
+  <label>Date:</label>
+  <input id="3" type="date">
+  <label>Name:</label>
+  <input id="4" type="text">
+       
+    <button onclick="myfunction();"> click</button>
+</center>
+<br>
+<center>
+    <table style="width: 500px;height:100px">
+        <th>Date</th>
+        <th>information</th>
+        <th>status</th>
+        <tr>
+            <tbody id="todo-list"></tbody>
+        </tr>
+
+    </table>
+
+    <script>
+        
+        
+       
+        var list1=[];
+        var list2=[];
+        function myfunction()
+        {
+            
+        var x=document.getElementById("3").value;
+         var x1=document.getElementById("4").value;
+       
+        document.getElementById("1").innerHTML=x;
+        document.getElementById("5").innerHTML=x1;
+
+       list1.push(x);
+       list2.push(x1);
+        update();
+        
+        }
+    function update()
+    {   
+        var table = document.getElementById("todo-list");
+        table.innerHTML="";
+        for(  i=0;i<=list1.length-1;i++)
+        {
+var newrow=document.createElement("tr");
+var date =document.createElement("td");
+date.innerText=list1[i];
+newrow.appendChild(date);
+table.appendChild(newrow);
+var name=document.createElement("td");
+name.innerText=list2[i];
+newrow.appendChild(name);
+table.appendChild(newrow);
+var row=document.createElement("td");
+var checBox=document.createElement("input"); 
+checBox.type="checkbox";
+
+
+
+row.appendChild(checBox);
+newrow.appendChild(row);
+table.appendChild(newrow);
+
+checBox.onchange=function(){
+    var rowIndex = this.parentNode.parentNode.rowIndex-1 ;
+    
+                
+              
+                var temp1 = list1[rowIndex-1];
+                var temp2 = list2[rowIndex-1];
+
+                list1.splice(rowIndex-1, 1);
+                list1.push(temp1);
+
+                list2.splice(rowIndex-1, 1);
+                list2.push(temp2);
+           
+                update();
+            };
+            row.appendChild(checBox);
+            newrow.appendChild(row);
+            table.appendChild(newrow);
+};
+        
+          
+      
+                
+               
+            
+    
+        }
+    
+    
+    </script>
+</body>
+</html>
