@@ -1,0 +1,22 @@
+Color Palette Design:
+HTML:
+1. Color Palette:
+   - Creating several color boxes representing different colors.
+   - Each color box is clickable hence onclick functionality should be implemented later.
+
+2. Text Container:
+   - Contains an input field where text should be entered.
+   
+JAVASCRIPT:
+1. Functionality:
+- Each color box:
+     - Displays a specific color.
+     - onclick event listner on a color box triggers a JavaScript function to change the text color.
+     
+   - Clicking on a color box changes the text color of the input field to the selected color.
+   - The selected color is applied to the text immediately upon clicking.
+   - The text color remains same until another color is selected.
+  
+
+
+   
