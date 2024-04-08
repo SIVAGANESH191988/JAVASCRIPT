@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>TODO LIST</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>TODO LIST</h1>
+        <label>Date:</label>
+        <input id="dateInput" type="date">
+        <label>Task description:</label>
+        <input style="width:200px;height:100px" id="taskInput" type="text">
+        <br><br><br>
+        <button onclick="myfunction()">Add Task</button>
+    </center>
+    <br>
+    <center>
+        <table style="width: 500px;height:100px">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Task Description</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="Task-Info"></tbody>
+        </table>
+    </center>
+
+    <script>
+        function myfunction() {
+            var dateInput = document.getElementById('dateInput').value;
+            var taskInput = document.getElementById('taskInput').value;
+            var tableBody = document.getElementById('Task-Info');
+
+            var newRow = document.createElement('tr');
+            var dateValue = document.createElement('td');
+            dateValue.innerText = dateInput;
+            newRow.appendChild(dateValue);
+
+            var taskDescription = document.createElement('td');
+            taskDescription.innerText = taskInput;
+            newRow.appendChild(taskDescription);
+
+            var taskStatus = document.createElement('td');
+            var checkBox = document.createElement('input');
+            checkBox.type = 'checkbox';
+            taskStatus.appendChild(checkBox);
+            newRow.appendChild(taskStatus);
+
+            tableBody.appendChild(newRow);
+            checkBox.onchange = checkfunction;
+        }
+
+        function checkfunction() {
+            var tableBody = document.getElementById('Task-Info');
+            if (this.checked) {
+                tableBody.appendChild(this.parentNode.parentNode);
+            }
+        }
+    </script>
+</body>
+</html>
