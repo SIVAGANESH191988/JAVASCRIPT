@@ -50,13 +50,13 @@
         {
            
         var TaskDate=new Date(document.getElementById('dateInput').value);
-        var d1= givenDate.setHours(0,0,0,0);
+        var d1= TaskDate.setHours(0,0,0,0);
 
         var CurrentDate=new Date();
             
          
-        var d2=d.setHours(0,0,0,0);
-        return d1>=d;
+        var d2=CurrentDate.setHours(0,0,0,0);
+        return d1>=d2;
         }
         function myfunction() {
             if((validTask())&&(validDate()))
