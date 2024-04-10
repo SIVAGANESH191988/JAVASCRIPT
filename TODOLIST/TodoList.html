@@ -5,15 +5,20 @@
         table, th, td {
             border: 1px solid black;
         }
+        #taskInput {
+            text-align: left;
+            width: 200px;
+            height: 100px;
+        }
     </style>
 </head>
 <body>
     <center>
         <h1>TODO LIST</h1>
-        <label>Date:</label>
+        <label for="dateInput">Date:</label>
         <input id="dateInput" type="date">
         <label>Task description:</label>
-        <input style="width:200px;height:100px" id="taskInput" type="text">
+        <textarea  id="taskInput" ></textarea>
         <br><br><br>
         <button onclick="myfunction()">Add Task</button>
     </center>
@@ -32,7 +37,30 @@
     </center>
 
     <script>
+        function validTask()
+        {
+            var x=document.getElementById('taskInput').value;
+            if(x.length==0)
+            {
+              return false;
+            }
+            return true;
+        }
+        function validDate()
+        {
+           
+        var TaskDate=new Date(document.getElementById('dateInput').value);
+        var d1= givenDate.setHours(0,0,0,0);
+
+        var CurrentDate=new Date();
+            
+         
+        var d2=d.setHours(0,0,0,0);
+        return d1>=d;
+        }
         function myfunction() {
+            if((validTask())&&(validDate()))
+            {
             var dateInput = document.getElementById('dateInput').value;
             var taskInput = document.getElementById('taskInput').value;
             var tableBody = document.getElementById('Task-Info');
@@ -53,13 +81,22 @@
             newRow.appendChild(taskStatus);
 
             tableBody.appendChild(newRow);
-            checkBox.onchange = checkfunction;
+            checkBox.onchange = function()
+            {
+                checkTask(checkBox);
+            }
+        
         }
-
-        function checkfunction() {
+    }
+        function checkTask(checkbox) {
             var tableBody = document.getElementById('Task-Info');
-            if (this.checked) {
-                tableBody.appendChild(this.parentNode.parentNode);
+            if (checkbox.checked) {
+                 tableBody.appendChild(checkbox.parentNode.parentNode);
+            }
+            else
+            {
+                tableBody.insertBefore(checkbox.parentNode.parentNode,tableBody.firstChild);
+
             }
         }
     </script>
