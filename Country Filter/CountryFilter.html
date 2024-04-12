@@ -1,51 +1,50 @@
-<html>
-    <head>
-        <title>
-            CountryFilter
-        </title>
-        <center>
-            <h1>
-                CountryFilter
-            </h1>
-        </center>
-        <body>
-            <center>
-            <label for="Country">country:</label>
-            <select id="countryname">
-               
-                <option value="India">India</option>
-                <option value="England">England</option>
-                <option value="Indonesia">Indonesia</option>
-                <option value="United States">United States</option>
-                <option value="Brazil">Brazil</option>
-            </select>
-            <label for="CountryName">country:</label>
-            <input type="text" id="text"oninput="myfunction()">
-            </center>
-            <script>
-                function myfunction()
-                {
-                    var x=document.getElementById("text").value;
-                    var Countries=document.getElementById("countryname");
-                    var y=Countries.options;
-                    var found=0;
-                    for(var i=0;i<y.length;i++)
-                    {
-                        if(x==y[i].text)
-                        {
-                           alert("country found");
-                          
-                           document.getElementById("text").value="";
-                        
-                        }
-                      
-                    }
-                    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>CountryFilter</title>
+</head>
+<body onload="myfunction()">
+    <center>
+        <h1>CountryFilter</h1>
+        <label for="Country">Select a country:</label>
+        <select id="countryname"></select>
+        <br>
+        <label for="CountryName">country:</label>
+        <input type="text" id="text" onchange="checkCountry()">
+    </center>
+    
+    <script>
+        var countryList=["India","Indonesia","England"];
+        var selectElement = document.getElementById("countryname");
 
+        function myfunction() {
+            selectElement.innerHTML = ""; 
+            for(var i=0; i<countryList.length; i++) {
+                var option = document.createElement("option");
+                option.value = countryList[i];
+                option.text = countryList[i];
+                selectElement.appendChild(option);
+            }
+        }
+
+        function checkCountry() {
+           
+            var found = false;
+            for(var i = 0; i < selectElement.options.length; i++) {
+                var enteredCountry = document.getElementById("text").value;
+                if(enteredCountry == selectElement.options[i].text) {
+                    alert("Country selected Successfully");
+                    found = true;
+                    break;
                 }
-            </script>
-        </body>
-    </head>
+               
+            }
+            
+            if (!(found)) {
+                alert("Country not found");
+            }
+        }
+    </script>
+</body>
 </html>
-
-
