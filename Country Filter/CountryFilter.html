@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>
+            CountryFilter
+        </title>
+        <center>
+            <h1>
+                CountryFilter
+            </h1>
+        </center>
+        <body>
+            <center>
+            <label for="Country">country:</label>
+            <select id="countryname">
+               
+                <option value="India">India</option>
+                <option value="England">England</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="United States">United States</option>
+                <option value="Brazil">Brazil</option>
+            </select>
+            <label for="CountryName">country:</label>
+            <input type="text" id="text"oninput="myfunction()">
+            </center>
+            <script>
+                function myfunction()
+                {
+                    var x=document.getElementById("text").value;
+                    var Countries=document.getElementById("countryname");
+                    var y=Countries.options;
+                    var found=0;
+                    for(var i=0;i<y.length;i++)
+                    {
+                        if(x==y[i].text)
+                        {
+                           alert("country found");
+                          
+                           document.getElementById("text").value="";
+                        
+                        }
+                      
+                    }
+                    
+
+                }
+            </script>
+        </body>
+    </head>
+</html>
+
+
