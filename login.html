@@ -1,24 +1,80 @@
 <html>
     <head>
         <title>
-           login
+         HomePage 
         </title>
-<center>
-    <h1>LoginPage</h1>
-</center>
+
+<style>
+    body{
+        font-family: 'Times New Roman', Times, serif ;
+        background-color: aliceblue;
+    }
+#Header{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.details{
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+input[type=text], input[type=password], input[type=tel] {
+    width: 100%;
+    padding: 20px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+.btn {
+    background-color:white;
+    color:black;
+    text-shadow: 0 0 1px black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    
+}
+#reg{
+    display: flex;
+flex-direction: column;
+align-items: center;
+}
+</style>
     </head>
     <body>
-        <form>
-        <center>
-            <label for="PhoneNumber">PhoneNumber:</label>
-            <input type="text"placeholder="PhoneNumber"/>
-            <br><br>
-           
-            <label for="password">password:</label>
-            <input type="text"placeholder="password"/>
-            <br><br>
-            <input type="submit"value="login"text-align:center/>
-        </center>
+        <div id="Header">
+            <h1>Welcome To Payments WebApp</h1>
+        </div>
+       
+        <form >
+            <div class="details">
+                <label for="Phone"><b>Phone Number</b></label>
+                <input type="tel"placeholder="Phone Number"/>
+    
+                <label for"username"><b>Username</b></label>
+                <input type="text"placeholder="username"/>
+    
+                <label for="password"><b>Password</b></label>
+                <input type="text"placeholder="password"/>
+                 <button class = "btn ">
+                <type="submit>Login</button>
+            </div>
+
         </form>
+        <div id="reg"> <button id= "register ">
+            <type="submit>Register</button>
+        </div>
+       
     </body>
 </html>
