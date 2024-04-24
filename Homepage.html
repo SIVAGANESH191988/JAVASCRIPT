@@ -51,16 +51,16 @@ input[type=text], input[type=password], input[type=tel] {
             <h1>Welcome To Payments WebApp</h1>
         </div>
        
-        <form >
+        <form action="http://localhost:8080/PaymentsWebApp//LoginServelet"method="post">
             <div class="details">
                 <label for="Phone"><b>Phone Number</b></label>
-                <input type="tel"placeholder="Phone Number"/>
+                <input type="tel"placeholder="Phone Number"name="phno"/>
     
                 <label for"username"><b>Username</b></label>
                 <input type="text"placeholder="username"/>
     
                 <label for="password"><b>Password</b></label>
-                <input type="text"placeholder="password"/>
+                <input type="text"placeholder="password"name="pass"/>
                 <div style="text-align: center;">
                     <button class = "btn ">
                         <type="submit>Login</button>
