@@ -1,46 +1,51 @@
-package paymentsApp;
+package paymentsapp;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import paymentApp.PaymentsAppDao;
-import paymentApp.User;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
-import java.io.IOException;
+public class PaymentsAppDao {
 
-/**
- * Servlet implementation class LoginServelet
- */
-public class LoginServelet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginServelet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	 public void insertUser(User u) {
+	        try {
+	        	
+	            Class.forName("com.mysql.cj.jdbc.Driver");
+	            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PaymentsWebApplication", "root", "root");
+	            Statement stmt = con.createStatement();
+	            String query = "INSERT INTO User_Details(phone_number, email, first_name, last_name, Date_Of_Birth, password) " +
+	                           "VALUES ('" + u.getPhoneNumber() + "','" + u.getEmail() + "','" + u.getFirstName() + "','" + u.getLastName() + "','"+u.getDateOfBirth()+"','"+ u.getPassword() + "')";
 
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String phno=request.getParameter("phno");
-		
-		String pass=request.getParameter("pass");
-
-		try {
-
-			
-						
-			//usersList.add(u);
-			PaymentsAppDao dao = new PaymentsAppDao();
-			dao.ValidateLogin(phno, pass);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
+	       
+	            stmt.executeUpdate(query);
+	            
+	           
+	            stmt.close();
+	            con.close();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    public static boolean ValidateLogin(String phno, String passWord) {
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PaymentsWebApplication", "root", "root");
+				Statement Stm = Con.createStatement();
+				String Query = "Select phone_number,password from User_Details";
+				ResultSet res = Stm.executeQuery(Query);
+				while(res.next()) {
+					
+					if(res.getString("phone_number").equals(phno) && res.getString("password").equals(passWord))
+					{
+						return true;
+					}
+				}
+				Stm.close();
+			}catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+			return false;
 		}
 	}
 
-}
