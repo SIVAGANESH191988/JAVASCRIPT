@@ -1,18 +1,21 @@
-package paymentsapp;
+package paymentApp;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-
-@WebServlet("/PaymentAppdataServelet")
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+/**
+ * Servlet implementation class RegisterServelet
+ */
 public class RegisterServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -35,22 +38,27 @@ public class RegisterServelet extends HttpServlet {
 	String Firstame=request.getParameter("fname");
 	String Lastname=request.getParameter("lname");
 	String Dob=request.getParameter("date");
-	response.getWriter().write(pass);
-	
-	try {
-	 Class.forName("com.mysql.cj.jdbc.Driver");
-	 
-	 Connection  con = DriverManager.getConnection( "jdbc:mysql://localhost:3306/PaymentsWebApp","root","root");
-	 Statement stmt = con.createStatement();
-	String query = "insert into User_Info(phone_number,email,first_name,last_name,Date_Of_Birth,PassWord) "
-			+ "values('"+phno+"','"+email+"','"+Firstame+"','"+Lastname+"','"+"2002/03/14"+"','"+pass+"')";
-	System.out.println(query);
-	stmt.executeUpdate(query);
-	}
-	catch(Exception e)
-	{
-		e.printStackTrace();
-	}
 
-}
+	
+		try {
+
+			User u=new User();
+			u.setFirstName(Firstame);
+			u.setLastName(Lastname);
+			u.setEmail(email);
+			u.setPassword(pass);
+			u.setDateOfBirth(Dob);
+						
+			//usersList.add(u);
+			PaymentsAppDao dao = new PaymentsAppDao();
+			dao.insertUser(u);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+	}
+//	 response.getWriter().write(Dob);
+	
+
 }
