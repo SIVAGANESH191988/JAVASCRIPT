@@ -50,7 +50,7 @@ public class RegisterServelet extends HttpServlet {
 			u.setPassword(pass);
 			u.setDateOfBirth(Dob);
 						
-			//usersList.add(u);
+			
 			PaymentsAppDao dao = new PaymentsAppDao();
 			dao.insertUser(u);
 			
