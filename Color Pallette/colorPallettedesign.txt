@@ -6,6 +6,7 @@ HTML:
 
 2. Text Container:
    - Contains an input field where text should be entered.
+   - whent text is given oninput functionality should be implemented later.
    
 JAVASCRIPT:
 1. Functionality:
@@ -13,10 +14,16 @@ JAVASCRIPT:
      - Displays a specific color.
      - onclick event listner on a color box triggers a JavaScript function to change the text color.
      
-   - Clicking on a color box changes the text color of the input field to the selected color.
-   - The selected color is applied to the text immediately upon clicking.
-   - The text color remains same until another color is selected.
-  
+   changeTextRandomColor():
+
+This function is triggered on any input in the text box.
+It randomly changes the text color of the input field to match one of the colors from the color boxes.
+
+ checkColorMatch(colour):
+
+Triggered when any color box is clicked.
+Checks if the text color of the input matches the clicked color box.
+Gives an alert message depending on whether the match is successful or not and clears the text input if successful.
 
 
    

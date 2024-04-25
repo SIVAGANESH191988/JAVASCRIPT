@@ -1,0 +1,13 @@
+Html:
+Header Section:
+Includes a web page title in the head and a centered title "CountryFilter" within the body.
+Form Section:
+A centered form containing a dropdown select element (<select>) with options for different countries.
+An input field where users can type the name of a country, which triggers a function on input to validate against the dropdown options.
+
+JavaScript:
+myfunction():
+Retrieves the value typed into the text input.
+Iterates through the options of the select element.
+Checks if the text input matches any of the select element options.
+Alerts the user if a matching country is found and clears the text input field.

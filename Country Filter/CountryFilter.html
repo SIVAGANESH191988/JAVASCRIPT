@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>CountryFilter</title>
+</head>
+<body onload="myfunction()">
+    <center>
+        <h1>CountryFilter</h1>
+        <label for="Country">Select a country:</label>
+        <select id="countryname"></select>
+        <br>
+        <label for="CountryName">country:</label>
+        <input type="text" id="text" onchange="checkCountry()">
+    </center>
+    
+    <script>
+        var countryList=["India","Indonesia","England"];
+        var selectElement = document.getElementById("countryname");
+
+        function myfunction() {
+            selectElement.innerHTML = ""; 
+            for(var i=0; i<countryList.length; i++) {
+                var option = document.createElement("option");
+                option.value = countryList[i];
+                option.text = countryList[i];
+                selectElement.appendChild(option);
+            }
+        }
+
+        function checkCountry() {
+           
+            var found = false;
+            for(var i = 0; i < selectElement.options.length; i++) {
+                var enteredCountry = document.getElementById("text").value;
+                if(enteredCountry == selectElement.options[i].text) {
+                    alert("Country selected Successfully");
+                    found = true;
+                    break;
+                }
+               
+            }
+            
+            if (!(found)) {
+                alert("Country not found");
+            }
+        }
+    </script>
+</body>
+</html>
