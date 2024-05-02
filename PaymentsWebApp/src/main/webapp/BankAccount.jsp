@@ -21,13 +21,23 @@ input[type=text] {
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
-    background:;
+    background:peach;
+}
+.btn {
+    background-color:white;
+    color:black;
+ 
+   text-align: center;
+    width: 50%;
+    
 }
 </style>
 </head>
 <body>
 <form action="http://localhost:8080/PaymentsWebApp//BankRegistrationServelet"method="post" >
             <div class="details">
+              <label for="BankName"><b>BankName</b></label>
+                <input type="text"placeholder="BankName"name="BName"/>
                 <label for="AccountNumber"><b>Account Number</b></label>
                 <input type="text"placeholder="Account Number"name="Acno"/>
                 <label for="AccountNumber"><b>Account Number</b></label>

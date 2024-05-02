@@ -29,4 +29,14 @@
     <servlet-name>LoginServelet</servlet-name>
     <url-pattern>/LoginServelet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BankRegistrationServelet</display-name>
+    <servlet-name>BankRegistrationServelet</servlet-name>
+    <servlet-class>paymentApp.BankRegistrationServelet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BankRegistrationServelet</servlet-name>
+    <url-pattern>/BankRegistrationServelet</url-pattern>
+  </servlet-mapping>
 </web-app>
