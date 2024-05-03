@@ -1,4 +1,4 @@
-package paymentsApp;
+package paymentApp;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -14,13 +14,13 @@ import java.io.IOException;
 /**
  * Servlet implementation class LoginServelet
  */
-public class LoginServelet extends HttpServlet {
+public class LoginAuthServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServelet() {
+    public LoginAuthServelet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,17 +30,18 @@ public class LoginServelet extends HttpServlet {
 		String phno=request.getParameter("phno");
 		
 		String pass=request.getParameter("pass");
+		long phNo=Long.parseLong(phno);
 
 		
 			PaymentsAppDao dao = new PaymentsAppDao();
-			if(dao.ValidateLogin(phno, pass))
+			if(dao.ValidateLogin(phNo, pass))
 			{
-				RequestDispatcher rd=request.getRequestDispatcher("/Dashboard.html");
+				RequestDispatcher rd=request.getRequestDispatcher("/Dashboard.jsp");
 				rd.forward(request, response);
 			}
 			else
 			{
-				RequestDispatcher rd=request.getRequestDispatcher("/Homepage.html");
+				RequestDispatcher rd=request.getRequestDispatcher("/Homepage.jsp");
 				rd.forward(request, response);
 			}
 	}

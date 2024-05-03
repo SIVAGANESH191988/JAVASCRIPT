@@ -1,3 +1,4 @@
+
 package paymentApp;
 
 import jakarta.servlet.ServletException;
@@ -12,6 +13,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 /**
  * Servlet implementation class RegisterServelet
@@ -35,22 +37,24 @@ public class RegisterServelet extends HttpServlet {
 	String phno=request.getParameter("phno");
 	String email=request.getParameter("email");
 	String pass=request.getParameter("pass");
-	String Firstame=request.getParameter("fname");
+	String Firstname=request.getParameter("fname");
 	String Lastname=request.getParameter("lname");
 	String Dob=request.getParameter("date");
-
+	String address=request.getParameter("Address");
+	long phnnum=Long.parseLong(phno);
+	request.setAttribute("name", Firstname);
 	
 		try {
 
 			User u=new User();
-			u.setPhoneNumber(phno);
-			u.setFirstName(Firstame);
+			u.setPhoneNumber(phnnum);
+			u.setFirstName(Firstname);
 			u.setLastName(Lastname);
 			u.setEmail(email);
 			u.setPassword(pass);
 			u.setDateOfBirth(Dob);
-						
-			
+			u.setAddress(address);
+			u.setWalBal(0);
 			PaymentsAppDao dao = new PaymentsAppDao();
 			dao.insertUser(u);
 			

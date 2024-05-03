@@ -63,6 +63,10 @@ input[type=text], input[type=password], input[type=tel],input[type=email],input[
                 <input type="text"placeholder="LastName"name="lname"/>
                  <label for="DateofBirth"><b>DateOfBirth</b></label>
                 <input type="date"name="date">
+                <label for="Address"><b>Address</b></label>
+                <input type="text"name="Address">
+                
+                
                 <label for="password"><b>Password</b></label>
                 <input type="text"placeholder="password"/name="pass">
                 <label for="confirm password"><b>Password</b></label>

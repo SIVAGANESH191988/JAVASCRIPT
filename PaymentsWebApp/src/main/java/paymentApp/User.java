@@ -1,17 +1,33 @@
+
 package paymentApp;
 
 import java.util.Date;
 
 public class User {
-String PhoneNumber;
+long PhoneNumber;
 String FirstName;
 String LastName;
 String email;
 String DateOfBirth;
-public String getPhoneNumber() {
+String Address;
+String password;
+double walBal;
+public double getWalBal() {
+	return walBal;
+}
+public void setWalBal(double walBal) {
+	this.walBal = walBal;
+}
+public String getAddress() {
+	return Address;
+}
+public void setAddress(String address) {
+	Address = address;
+}
+public long getPhoneNumber() {
 	return PhoneNumber;
 }
-public void setPhoneNumber(String phoneNumber) {
+public void setPhoneNumber(long phoneNumber) {
 	PhoneNumber = phoneNumber;
 }
 public String getFirstName() {
@@ -44,5 +60,5 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
-String password;
+
 }

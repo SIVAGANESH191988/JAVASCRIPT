@@ -10,10 +10,10 @@ public class PaymentsAppDao {
         try {
         	
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Payments_Web_App", "root", "Siyara@191988");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/paymentsweb", "root", "Siyara@191988");
             Statement stmt = con.createStatement();
-            String query = "INSERT INTO User_Details(phoneNumber, email, FirstName, LastName, DOB, Password) " +
-                           "VALUES ('" + u.getPhoneNumber() + "','" + u.getEmail() + "','" + u.getFirstName() + "','" + u.getLastName() + "','"+u.getDateOfBirth()+"','"+ u.getPassword() + "')";
+            String query = "INSERT INTO users(PhoneNo, email, FirstName, LastName, DateOfBirth, PassWord,CurrWalletBal,Address)  " +
+                           "VALUES ('" + u.getPhoneNumber() + "','" + u.getEmail() + "','" + u.getFirstName() + "','" + u.getLastName() + "','"+u.getDateOfBirth()+"','"+ u.getPassword() + "','"+u.getWalBal()+"','"+u.getAddress() + "')";
 
        
             stmt.executeUpdate(query);
@@ -25,17 +25,17 @@ public class PaymentsAppDao {
             e.printStackTrace();
         }
     }
-    public static boolean ValidateLogin(String phno, String passWord) {
+    public static boolean ValidateLogin(long phno, String passWord) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Payments_Web_App", "root", "Siyara@191988"
+			Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/paymentsweb", "root", "Siyara@191988"
 					+ "");
 			Statement Stm = Con.createStatement();
-			String Query = "Select PhoneNumber,Password from User_Details";
+			String Query = "Select PhoneNo,Password from users";
 			ResultSet res = Stm.executeQuery(Query);
 			while(res.next()) {
 				
-				if(res.getString("PhoneNumber").equals(phno) && res.getString("Password").equals(passWord))
+				if(res.getLong("PhoneNo")==phno && res.getString("Password").equals(passWord))
 				{
 					return true;
 				}

@@ -51,7 +51,7 @@ input[type=text], input[type=password], input[type=tel] {
             <h1>Welcome To Payments WebApp</h1>
         </div>
        
-        <form action="http://localhost:8080/PaymentsWebApp//LoginServelet"method="post">
+        <form action="http://localhost:8080/PaymentsWebApp//Loginservelet"method="post">
             <div class="details">
                 <label for="Phone"><b>Phone Number</b></label>
                 <input type="tel"placeholder="Phone Number"name="phno"/>
@@ -72,7 +72,7 @@ input[type=text], input[type=password], input[type=tel] {
 
         </form>
         <div style="text-align: center;">
-            <a href="Registration.html">
+            <a href="Registration.jsp">
             <button id= "reg">
                 <type="submit>Register</button>
                 </a>

@@ -44,6 +44,8 @@ input[type=text] {
                 <input type="text"placeholder="Confirm Account Number"name="Acno"/>
                 <label for="IFSC"><b>IFSC</b></label>
                 <input type="text"placeholder="IFSC"name="IFSC"/>
+                <label for="Branch"><b>Branch</b></label>
+                <input type="text"placeholder="Branch"name="Branch"/>
              
                 
                 <div style="text-align: center;">
